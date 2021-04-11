@@ -87,37 +87,15 @@ class HorizontalNumberPickerWrapperState extends State<HorizontalNumberPickerWra
 
   @override
   Widget build(BuildContext context) {
-    int numberPickerHeight = 60;
+    int numberPickerHeight = 80;
 
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         //上方选中值
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.baseline,
-          textBaseline: TextBaseline.alphabetic,
-          children: <Widget>[
-            Text(
-              widget.titleTransformer(_selectedValue),
-              style: TextStyle(
-                color: widget.titleTextColor,
-                fontSize: 40,
-                //fontFamily: "Montserrat",
-              ),
-            ),
-            Text(
-              ' ${widget.unit}',
-              style: TextStyle(
-                color: widget.titleTextColor,
-                fontSize: 14,
-                //fontFamily: "Montserrat",
-              ),
-            ),
-          ],
-        ),
-        Container(width: 0, height: 10),
+        _selectedBox(),
+        Container(width: 0, height: 20),
         //可滚动标尺
         Stack(
           children: <Widget>[
@@ -172,5 +150,56 @@ class HorizontalNumberPickerWrapperState extends State<HorizontalNumberPickerWra
         ),
       ],
     );
+  }
+
+  Widget _selectedBox() {
+    return Stack(
+      overflow: Overflow.visible,
+      children: [
+      Container(
+        alignment: Alignment.center,
+        width: 100,
+        height: 100,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(80)),
+          color: Color(0xffecf4fb),
+        ),
+        child: Text(
+          widget.titleTransformer(_selectedValue),
+          style: TextStyle(
+            color: Color(0xff535a60),
+            fontSize: 40,
+            fontWeight: FontWeight.bold,
+            //fontFamily: "Montserrat",
+          ),
+        ),
+      ),
+      
+      Positioned(
+        left: 40,
+        bottom: -8,
+        child: Container(
+          width: 20,
+          height: 10,
+          decoration: BoxDecoration(
+            border: Border(
+              // 四个值 top right bottom left
+              top: BorderSide(
+                  color: Color(0xffecf4fb),
+                  width: 16,
+                  style: BorderStyle.solid),
+              right: BorderSide(
+                  color: Colors.transparent,
+                  width: 12,
+                  style: BorderStyle.solid),
+              left: BorderSide(
+                  color: Colors.transparent,
+                  width: 12,
+                  style: BorderStyle.solid),
+            ),
+          ),
+        ),
+      )
+    ]);
   }
 }

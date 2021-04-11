@@ -59,7 +59,7 @@ class HorizontalScale extends StatefulWidget {
     this.scaleTransformer,
     this.scaleColor = const Color(0xFFE9E9E9),
     this.indicatorColor = const Color(0xFF3995FF),
-    this.scaleTextColor = const Color(0xFF8E99A0),
+    this.scaleTextColor = const Color(0xFF5d646a),
   }) : super(key: key) {
     if (subGridCountPerGrid % 2 != 0) {
       throw Exception("subGridCountPerGrid必须是偶数");
@@ -323,18 +323,18 @@ class MyPainter extends CustomPainter {
     }
 
     //绘制横线
-    canvas.drawLine(Offset(startX, 0 + _lineWidth / 2),
-        Offset(endX, 0 + _lineWidth / 2), _linePaint);
+    canvas.drawLine(Offset(startX, 20 + _lineWidth / 2),
+        Offset(endX, 20 + _lineWidth / 2), _linePaint);
 
     //绘制竖线
     for (double x = startX; x <= endX; x += subGridWidth) {
       if (x == size.width / 2) {
         //中间为长刻度
         canvas.drawLine(
-            Offset(x, 0), Offset(x, size.height * 3 / 8), _linePaint);
+            Offset(x, 6), Offset(x, 20 + _lineWidth / 2), _linePaint);
       } else {
         //其他为短刻度
-        canvas.drawLine(Offset(x, 0), Offset(x, size.height / 4), _linePaint);
+        canvas.drawLine(Offset(x, 10), Offset(x, 16 + _lineWidth / 2), _linePaint);
       }
     }
   }

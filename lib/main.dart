@@ -47,8 +47,8 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               // Container(height: 200),
               // MyProgress(),
-              _buildTitle(),
-              Container(height: MediaQuery.of(context).size.height.round() * 0.3),
+              _buildTitle(), 
+              Container(height: MediaQuery.of(context).size.height.round() * 0.24),
               HorizontalNumberPickerWrapper(
                 initialValue: 28,
                 minValue: 0,
@@ -57,12 +57,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 unit: '',
                 widgetWidth: MediaQuery.of(context).size.width.round() - 30,
                 subGridCountPerGrid: 10,
-                subGridWidth: 8,
+                subGridWidth: 12,
                 onSelectedChanged: (value) {
                   print(value);
                 },
               ),
-              Container(height: MediaQuery.of(context).size.height.round() * 0.3),
+              Container(height: MediaQuery.of(context).size.height.round() * 0.26),
               // 底部按钮
               RaisedButton(
                 color: Color(0xff7bccd6),

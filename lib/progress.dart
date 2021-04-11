@@ -29,7 +29,7 @@ class MyProgressState extends State<MyProgress> {
             backgroundColor: Color(0xffebedf0),
             valueColor: AlwaysStoppedAnimation<Color>(Color(0xff7bccd6)),
           ),
-        ),
+        ), 
     // ) 
     );
   }
